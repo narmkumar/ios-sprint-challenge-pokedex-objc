@@ -10,6 +10,7 @@
 
 @class NMKPokemon;
 @class NMKPokemonController;
+@class NMKPokemonDetailViewController;
 
 @interface NMKPokemonTableViewController : UITableViewController
 

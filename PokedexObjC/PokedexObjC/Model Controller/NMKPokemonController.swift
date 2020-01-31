@@ -18,13 +18,12 @@ enum HTTPMethod: String {
 @objc (NMKPokemonController)
 class NMKPokemonController: NSObject {
     
-    @objc var allPokemon: [Pokemon] = []
     let baseURL = URL(string: "https://pokeapi.co/api/v2/pokemon/")!
     
     
     @objc(sharedController) static let shared = NMKPokemonController()
     
-    @objc func fetchAllPokemon(completion: @escaping ([Pokemon]?, Error?) -> Void) {
+    @objc func fetchAllPokemon(completion: @escaping ([Pokemon]?, Error?) -> Void) { // the completion calls either the Pokemon, or the error
         let urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         
         guard let pokemonURL = urlComponents?.url else {
