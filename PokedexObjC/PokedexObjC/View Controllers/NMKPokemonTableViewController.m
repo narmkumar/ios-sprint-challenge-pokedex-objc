@@ -7,12 +7,26 @@
 //
 
 #import "NMKPokemonTableViewController.h"
+#import "NMKPokemon.h"
+#import "PokedexObjC-Swift.h"
 
 @interface NMKPokemonTableViewController ()
+
+@property (nonatomic) NSArray <NMKPokemon *> *pokemon;
 
 @end
 
 @implementation NMKPokemonTableViewController
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        _controller = [[NMKPokemonController alloc] init];
+    }
+    return self;
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,7 +35,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.pokemon.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@class NMKPokemon;
+@class NMKPokemonController;
 
 @interface NMKPokemonTableViewController : UITableViewController
 
+@property (nonatomic, readonly) NMKPokemonController *controller;
+
 @end
 
-NS_ASSUME_NONNULL_END

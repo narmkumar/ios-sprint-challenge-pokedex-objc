@@ -10,7 +10,7 @@
         <!--Pokedex-->
         <scene sceneID="gHR-zW-TRt">
             <objects>
-                <tableViewController id="zj9-8R-Kz4" sceneMemberID="viewController">
+                <tableViewController id="zj9-8R-Kz4" customClass="NMKPokemonTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wTn-FD-ZWG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="197.10144927536234" y="151.33928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Pokemon Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NMKPokemonDetailViewController" customModule="PokedexObjC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +98,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="zj1-Jc-NGr"/>
+                    <connections>
+                        <outlet property="abilitiesLabel" destination="yNu-xg-jTB" id="J7L-i9-kVo"/>
+                        <outlet property="id" destination="NVo-xe-s4T" id="GyL-K6-rcj"/>
+                        <outlet property="imageView" destination="Rk2-Qw-UDa" id="6Vc-IR-MrV"/>
+                        <outlet property="name" destination="qdH-04-Bkh" id="ngP-IJ-AlN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

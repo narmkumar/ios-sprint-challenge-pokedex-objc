@@ -3,4 +3,3 @@
 //
 
 #import "NMKPokemon.h"
-#import "NMKPokemon"

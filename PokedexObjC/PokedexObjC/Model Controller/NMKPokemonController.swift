@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Pokmeon
 
 enum HTTPMethod: String {
     case get = "GET"
@@ -49,18 +48,14 @@ class NMKPokemonController: NSObject {
                 return
             }
             
-            let jsonDecoder = JSONDecoder()
+//            let jsonDecoder = JSONDecoder()
             
             do {
                 guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                     NSLog("Problem with JSON Serialization")
+                    return
                 }
-                if let pokemonDictionaries = dictionary["results"] as? [String : Any] {
-                    for pokemon in pokemonDictionaries {
-                        let aPokemon = Pokemon(dictionary: pokemon)
-                        self.allPokemon.append(aPokemon)
-                    }
-                }
+                let pokemonDictionaries = dictionary["results"] as? [String : Any]
                 
             } catch {
                 NSLog("Unable to decode Pokemon Dictionaries into objects: \(error)")
@@ -73,7 +68,7 @@ class NMKPokemonController: NSObject {
     
     
     @objc func fillInDetails(for pokemon: Pokemon) {
-        let urlComponents = URLComponents(url: baseURL.appendingPathComponent(pokemon.name!))
+        let urlComponents = URLComponents(url: baseURL.appendingPathComponent(pokemon.name), resolvingAgainstBaseURL: true)
         
         guard let pokemonURL = urlComponents?.url else {
             NSLog("Pokemon URL is not valid.")
@@ -86,27 +81,26 @@ class NMKPokemonController: NSObject {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 NSLog("Error fetching data: \(error)")
-                completion(nil, error)
                 return
             }
             
             guard let data = data else {
                 NSLog("Data returned does not exist.")
-                completion(nil, error)
                 return
             }
             
             do {
                 guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                     NSLog("Problem with JSON Serialization")
+                    return
                 }
                 
-                let picture = dictionary["sprites"] as! [String : Any]
-                let imageString = picture["front_shiny"] as! String
+                let image = dictionary["sprites"] as! [String : Any]
+                let imageString = image["front_shiny"] as! String
                 pokemon.sprites = imageString
                 
                 let identifier = dictionary["id"] as! Int
-                pokemon.identifier = Int32(id)
+                pokemon.identifier = Int32(identifier)
                 
                 let abilitiesDitionaries = dictionary["abilities"] as! [[String : Any]]
                 var names: [String] = []
@@ -120,7 +114,6 @@ class NMKPokemonController: NSObject {
                 
             } catch {
                 NSLog("Unable to decode Pokemon Dictionary traits into objects: \(error)")
-                completion(nil, error)
             }
         }.resume()
     }
