@@ -30,29 +30,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [ self->_controller fetchAllPokemonWithCompletion:^(NSArray<NMKPokemon *> *pokemon, NSError *error) {
+            if (error) {
+                NSLog(@"Error fetching pokemon: %@", error);
+            }
+            self.pokemon = pokemon;
+            [self.tableView reloadData];
+        }];
+    });
 }
-
+                   
 #pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.pokemon.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PokeCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-
+                   
+                   - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+        return self.pokemon.count;
+    }
+                   
+                   - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PokeCell" forIndexPath:indexPath];
+        
+        NMKPokemon *pokemon = [self.pokemon objectAtIndex:indexPath.row];
+        cell.textLabel.text = pokemon.name;
+        
+        return cell;
+    }
+                   
+                   
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    
-}
-
-@end
+                   
+                   // In a storyboard-based application, you will often want to do a little preparation before navigation
+                   - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        if ([segue.identifier isEqualToString:@"ShowPokeSegue"]) {
+            NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+            
+            NMKPokemonDetailViewController *detailVC = segue.destinationViewController;
+            
+            // Finish detailVC.pokemon set up after finishing DetailVC
+        }
+        
+    }
+                   
+                   @end

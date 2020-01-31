@@ -47,15 +47,20 @@ class NMKPokemonController: NSObject {
                 completion(nil, error)
                 return
             }
-            
-//            let jsonDecoder = JSONDecoder()
-            
+                    
             do {
                 guard let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                     NSLog("Problem with JSON Serialization")
                     return
                 }
-                let pokemonDictionaries = dictionary["results"] as? [String : Any]
+                guard let pokemonDictionaries = dictionary["results"] as? [[String : Any]] else {
+                    return
+                }
+                
+                let pokemon = pokemonDictionaries.compactMap { Pokemon(dictionary: $0) }
+                DispatchQueue.main.async {
+                    completion(pokemon, nil)
+                }
                 
             } catch {
                 NSLog("Unable to decode Pokemon Dictionaries into objects: \(error)")
@@ -68,7 +73,7 @@ class NMKPokemonController: NSObject {
     
     
     @objc func fillInDetails(for pokemon: Pokemon) {
-        let urlComponents = URLComponents(url: baseURL.appendingPathComponent(pokemon.name), resolvingAgainstBaseURL: true)
+        let urlComponents = URLComponents(url: baseURL.appendingPathComponent(pokemon.name!), resolvingAgainstBaseURL: true)
         
         guard let pokemonURL = urlComponents?.url else {
             NSLog("Pokemon URL is not valid.")

@@ -12,17 +12,17 @@
 NS_SWIFT_NAME(Pokemon)
 @interface NMKPokemon : NSObject
 
-@property (nonatomic, copy, nonnull) NSString *name;
-@property (nonatomic, copy, nonnull) NSArray *abilities;
+@property (nonatomic, copy, nullable) NSString *name;
+@property (nonatomic, copy, nullable) NSArray *abilities;
 @property (nonatomic) int identifier;
-@property (nonatomic, copy, nonnull) NSString *sprites;
-@property (nonatomic, copy, nonnull) NSString *url;
+@property (nonatomic, copy, nullable) NSString *sprites;
+@property (nonatomic, copy, nullable) NSString *url;
 
-- (nonnull instancetype)initWithName:(nonnull NSString *)name
-                   abilities:(nonnull NSArray *)abilities
+- (nonnull instancetype)initWithName:(nullable NSString *)name
+                   abilities:(nullable NSArray *)abilities
                   identifier:(int)identifier
-                     sprites:(nonnull NSString *)sprites
-                         url:(nonnull NSString *)url;
+                     sprites:(nullable NSString *)sprites
+                         url:(nullable NSString *)url;
 
 - (nonnull instancetype)initWithDictionary:(nonnull NSDictionary *)dictionary;
 
