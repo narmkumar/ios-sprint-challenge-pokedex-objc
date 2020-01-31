@@ -61,12 +61,8 @@
 		4B75E8A023E478ED0092559E /* PokedexObjC */ = {
 			isa = PBXGroup;
 			children = (
-				4B75E8A123E478ED0092559E /* AppDelegate.h */,
-				4B75E8A223E478ED0092559E /* AppDelegate.m */,
-				4B75E8A423E478ED0092559E /* SceneDelegate.h */,
-				4B75E8A523E478ED0092559E /* SceneDelegate.m */,
-				4B75E8BA23E482C10092559E /* NMKPokemon.h */,
-				4B75E8BB23E482C10092559E /* NMKPokemon.m */,
+				4B75E8BD23E489AC0092559E /* App LifeCycle */,
+				4B75E8BE23E489BA0092559E /* Model */,
 				4B75E8AA23E478ED0092559E /* Main.storyboard */,
 				4B75E8AD23E478EE0092559E /* Assets.xcassets */,
 				4B75E8AF23E478EE0092559E /* LaunchScreen.storyboard */,
@@ -74,6 +70,26 @@
 				4B75E8B323E478EE0092559E /* main.m */,
 			);
 			path = PokedexObjC;
+			sourceTree = "<group>";
+		};
+		4B75E8BD23E489AC0092559E /* App LifeCycle */ = {
+			isa = PBXGroup;
+			children = (
+				4B75E8A123E478ED0092559E /* AppDelegate.h */,
+				4B75E8A223E478ED0092559E /* AppDelegate.m */,
+				4B75E8A423E478ED0092559E /* SceneDelegate.h */,
+				4B75E8A523E478ED0092559E /* SceneDelegate.m */,
+			);
+			path = "App LifeCycle";
+			sourceTree = "<group>";
+		};
+		4B75E8BE23E489BA0092559E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B75E8BA23E482C10092559E /* NMKPokemon.h */,
+				4B75E8BB23E482C10092559E /* NMKPokemon.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
