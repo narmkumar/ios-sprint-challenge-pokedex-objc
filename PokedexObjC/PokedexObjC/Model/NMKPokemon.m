@@ -10,7 +10,7 @@
 
 @implementation NMKPokemon
 
-- (instancetype) initWithName:(NSString *)name abilities:(NSArray *)abilities identifier:(int)identifier sprites:(NSString *)sprites url:(NSString *)url {
+- (instancetype) initWithName:(nullable NSString *)name abilities:(nullable NSArray *)abilities identifier:(int)identifier sprites:(nullable NSString *)sprites url:(nullable NSString *)url {
     if (self = [super init]) {
         _name = [name copy];
         _abilities = [abilities copy];
@@ -24,12 +24,12 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     NSString *name = [NSString stringWithFormat:@"%@", dictionary[@"name"]];
     NSString *url = [NSString stringWithFormat:@"%@", dictionary[@"url"]];
-    NSArray *abilities = dictionary[@"abilities"];
-    NSNumber *identifier = dictionary[@"id"];
-    int identifierIntValue = [identifier intValue];
-    NSString *sprites = dictionary[@"sprites"][@"front_shiny"];
+//    NSArray *abilities = dictionary[@"abilities"];
+//    NSNumber *identifier = dictionary[@"id"];
+//    int identifierIntValue = [identifier intValue];
+//    NSString *sprites = dictionary[@"sprites"][@"front_shiny"];
     
-    return [self initWithName:name abilities:abilities identifier:identifierIntValue sprites:sprites url:url];
+    return [self initWithName:name abilities:NULL identifier:NULL sprites:NULL url:NULL];
 }
 
 

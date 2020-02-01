@@ -11,7 +11,9 @@
 @class NMKPokemon;
 @class NMKPokemonController;
 @class NMKPokemonDetailViewController;
+@class NMKPokeViewController;
 
+NS_SWIFT_NAME(PokemonTableViewController)
 @interface NMKPokemonTableViewController : UITableViewController
 
 @property (nonatomic, readonly) NMKPokemonController *controller;

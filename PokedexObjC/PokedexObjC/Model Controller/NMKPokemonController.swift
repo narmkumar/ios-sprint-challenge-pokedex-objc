@@ -73,7 +73,7 @@ class NMKPokemonController: NSObject {
     
     @objc func fillInDetails(for pokemon: Pokemon) {
         let urlComponents = URLComponents(url: baseURL.appendingPathComponent(pokemon.name!), resolvingAgainstBaseURL: true)
-        
+
         guard let pokemonURL = urlComponents?.url else {
             NSLog("Pokemon URL is not valid.")
             return
@@ -123,4 +123,3 @@ class NMKPokemonController: NSObject {
     }
     
 }
-

@@ -8,7 +8,7 @@
 
 #import "NMKPokemonTableViewController.h"
 #import "NMKPokemon.h"
-#import "NMKPokemonDetailViewController.swift"
+#import "NMKPokeViewController.h"
 #import "PokedexObjC-Swift.h"
 
 @interface NMKPokemonTableViewController ()
@@ -65,11 +65,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ShowPokeSegue"]) {
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-        NMKPokemonDetailViewController *detailVC = segue.destinationViewController;
+        NMKPokeViewController *detailVC = segue.destinationViewController;
+        
+        NMKPokemon *pokemon = self.pokemon[indexPath.row];
+        detailVC.pokemon = pokemon;
+        detailVC.controller = _controller;
          
-        detailVC.pokemon = [self.pokemon objectAtIndex:indexPath.row];
     }
-    
 }
 
 @end

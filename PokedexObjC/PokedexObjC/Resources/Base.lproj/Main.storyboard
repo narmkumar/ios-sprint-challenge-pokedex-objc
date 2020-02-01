@@ -33,7 +33,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowPokeSegue" id="Cdh-EH-XZ4"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowPokeSegue" id="AdJ-Me-Ji9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="197.10144927536234" y="151.33928571428569"/>
         </scene>
-        <!--Pokemon Detail View Controller-->
+        <!--Poke View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NMKPokemonDetailViewController" customModule="PokedexObjC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NMKPokeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,10 +99,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="zj1-Jc-NGr"/>
                     <connections>
-                        <outlet property="abilitiesLabel" destination="yNu-xg-jTB" id="J7L-i9-kVo"/>
-                        <outlet property="id" destination="NVo-xe-s4T" id="GyL-K6-rcj"/>
-                        <outlet property="imageView" destination="Rk2-Qw-UDa" id="6Vc-IR-MrV"/>
-                        <outlet property="name" destination="qdH-04-Bkh" id="ngP-IJ-AlN"/>
+                        <outlet property="abilities" destination="yNu-xg-jTB" id="Pmv-DY-9yf"/>
+                        <outlet property="identifier" destination="NVo-xe-s4T" id="a0e-CS-xfT"/>
+                        <outlet property="imageView" destination="Rk2-Qw-UDa" id="SG6-k0-5bi"/>
+                        <outlet property="name" destination="qdH-04-Bkh" id="eYm-VB-SIQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,6 +126,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDU-bH-yQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-713.04347826086962" y="151.33928571428569"/>
+        </scene>
+        <!--Pokemon Detail View Controller-->
+        <scene sceneID="2TB-Ie-hgP">
+            <objects>
+                <viewController id="pXR-VF-87L" customClass="NMKPokemonDetailViewController" customModule="PokedexObjC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Th-6d-rRB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fVh-55-sHv">
+                                <rect key="frame" x="100" y="94" width="214" height="214"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fVh-55-sHv" secondAttribute="height" multiplier="1:1" id="yN7-Sc-11q"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pED-gD-E3c">
+                                <rect key="frame" x="50" y="333" width="314" height="81.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2F-t8-QEs">
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-8p-sG9">
+                                        <rect key="frame" x="0.0" y="30.5" width="21" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abilities:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpK-0u-idy">
+                                        <rect key="frame" x="0.0" y="61" width="65" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fVh-55-sHv" firstAttribute="leading" secondItem="eim-Zc-yXI" secondAttribute="leading" constant="100" id="2ly-S0-jPI"/>
+                            <constraint firstItem="pED-gD-E3c" firstAttribute="top" secondItem="fVh-55-sHv" secondAttribute="bottom" constant="25" id="926-Jo-Nne"/>
+                            <constraint firstItem="eim-Zc-yXI" firstAttribute="trailing" secondItem="fVh-55-sHv" secondAttribute="trailing" constant="100" id="9Si-xy-uXz"/>
+                            <constraint firstItem="eim-Zc-yXI" firstAttribute="trailing" secondItem="pED-gD-E3c" secondAttribute="trailing" constant="50" id="ADy-HG-Pdx"/>
+                            <constraint firstItem="pED-gD-E3c" firstAttribute="leading" secondItem="eim-Zc-yXI" secondAttribute="leading" constant="50" id="Kl3-RJ-lbe"/>
+                            <constraint firstItem="fVh-55-sHv" firstAttribute="top" secondItem="eim-Zc-yXI" secondAttribute="top" constant="50" id="flc-La-yEf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eim-Zc-yXI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uxa-Ud-mZO"/>
+                    <connections>
+                        <outlet property="abilitiesLabel" destination="YpK-0u-idy" id="hha-mB-3NL"/>
+                        <outlet property="id" destination="xjd-8p-sG9" id="AHM-XV-DIi"/>
+                        <outlet property="imageView" destination="fVh-55-sHv" id="n1B-Nt-Xh1"/>
+                        <outlet property="name" destination="Q2F-t8-QEs" id="dO7-ax-7zX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-j1-TfD" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1077" y="820"/>
         </scene>
     </scenes>
 </document>

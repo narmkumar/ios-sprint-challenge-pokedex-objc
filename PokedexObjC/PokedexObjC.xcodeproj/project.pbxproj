@@ -17,6 +17,7 @@
 		4B75E8C223E492D70092559E /* NMKPokemonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B75E8C123E492D70092559E /* NMKPokemonController.swift */; };
 		4B75E8C623E496D50092559E /* NMKPokemonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B75E8C523E496D50092559E /* NMKPokemonTableViewController.m */; };
 		4B75E8C823E497200092559E /* NMKPokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B75E8C723E497200092559E /* NMKPokemonDetailViewController.swift */; };
+		4B88B13A23E4F61500244FAE /* NMKPokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B88B13923E4F61500244FAE /* NMKPokeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		4B75E8C423E496D50092559E /* NMKPokemonTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMKPokemonTableViewController.h; sourceTree = "<group>"; };
 		4B75E8C523E496D50092559E /* NMKPokemonTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMKPokemonTableViewController.m; sourceTree = "<group>"; };
 		4B75E8C723E497200092559E /* NMKPokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMKPokemonDetailViewController.swift; sourceTree = "<group>"; };
+		4B88B13823E4F61500244FAE /* NMKPokeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NMKPokeViewController.h; sourceTree = "<group>"; };
+		4B88B13923E4F61500244FAE /* NMKPokeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NMKPokeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				4B75E8C423E496D50092559E /* NMKPokemonTableViewController.h */,
 				4B75E8C523E496D50092559E /* NMKPokemonTableViewController.m */,
 				4B75E8C723E497200092559E /* NMKPokemonDetailViewController.swift */,
+				4B88B13823E4F61500244FAE /* NMKPokeViewController.h */,
+				4B88B13923E4F61500244FAE /* NMKPokeViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				4B75E8C223E492D70092559E /* NMKPokemonController.swift in Sources */,
 				4B75E8BC23E482C10092559E /* NMKPokemon.m in Sources */,
 				4B75E8C823E497200092559E /* NMKPokemonDetailViewController.swift in Sources */,
+				4B88B13A23E4F61500244FAE /* NMKPokeViewController.m in Sources */,
 				4B75E8A623E478ED0092559E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Nar Kumar. All rights reserved.
 //
 
-import UIKit
+import UIKit 
 
 class NMKPokemonDetailViewController: UIViewController {
     
@@ -18,8 +18,9 @@ class NMKPokemonDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    var pokemon: Pokemon?
-    var controller: NMKPokemonController?
+    @objc var pokemon: Pokemon?
+    @objc var controller: NMKPokemonController?
+    
     var pokemonAbilityObservation: NSKeyValueObservation?
     var pokemonImageObservation: NSKeyValueObservation?
     var pokemonIDObservation: NSKeyValueObservation?
@@ -29,14 +30,19 @@ class NMKPokemonDetailViewController: UIViewController {
         guard let pokemon = pokemon else { return }
         guard let controller = controller else { return }
         controller.fillInDetails(for: pokemon)
-        name.text = pokemon.name
-        pokeObservations()
+        updateViews()
     }
 
     // MARK: - Private Methods
 
-    private func pokeObservations() {
+    private func updateViews() {
+        guard let pokemon = pokemon else { return }
+        name.text = "Pokemon Name: \(pokemon.name!.capitalized)"
+        id.text = "ID: \(pokemon.identifier)"
+        abilitiesLabel.text = "Abilities: \(String(describing: pokemon.abilities))"
+    }
     
-
+    private func pokeObservations() {
+        
     }
 }
